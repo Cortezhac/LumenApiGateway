@@ -20,4 +20,13 @@ class AuthorServices
     {
         $this->baseUri = config('services.authors.base_uri');
     }
+
+    /**
+     * Get the full list of authors from the authors service
+     * @return string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function getAuthors(){
+        return $this->perfomRequest('GET', '/authors');
+    }
 }
