@@ -3,7 +3,6 @@
 
 namespace App\Services;
 
-
 use App\Traits\ConsumesExternalService;
 
 class BookServices
