@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Services\BookServices;
 use App\Traits\ApiResponser;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class BookController extends Controller
 {
@@ -26,23 +27,24 @@ class BookController extends Controller
         $this->bookServices = $bookServices;
     }
 
-    public function index(){
 
+    public function index(){
+        return $this->successResponse($this->bookServices->getBooks());
     }
 
     public function store(Request $request){
-
+        return $this->successResponse($this->bookServices->createBook($request->all()), Response::HTTP_CREATED);
     }
 
     public function show($id){
-
+        return $this->successResponse($this->bookServices->getBook($id));
     }
 
     public function update(Request $request, $id){
-
+        return $this->successResponse($this->bookServices->updateBook($request->all(), $id));
     }
 
     public function destroy($id){
-
+        return $this->successResponse($this->bookServices->deleteBook($id));
     }
 }
