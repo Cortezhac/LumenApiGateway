@@ -3,7 +3,7 @@
 namespace App\Traits;
 use GuzzleHttp\Client;
 
-Trait ConsumesExternalService {
+trait ConsumesExternalService {
     /**
      * Send to request to any service
      * @param $method
