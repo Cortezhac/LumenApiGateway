@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\AuthorServices;
 use App\Services\BookServices;
 use App\Traits\ApiResponser;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use function PHPUnit\Framework\isEmpty;
 
 class BookController extends Controller
 {
@@ -16,14 +18,20 @@ class BookController extends Controller
      * @var BookServices
      */
     public $bookServices;
+    /**
+     * the service to consume the author service
+     * @var AuthorServices
+     */
+    public $authorServices;
 
     /**
      * Create a new controller instance.
      *
      * @param BookServices $bookServices
      */
-    public function __construct(BookServices $bookServices)
+    public function __construct(BookServices $bookServices, AuthorServices $authorServices)
     {
+        $this->authorServices = $authorServices;
         $this->bookServices = $bookServices;
     }
 
@@ -33,6 +41,8 @@ class BookController extends Controller
     }
 
     public function store(Request $request){
+        $this->authorServices->getOneAuthor($request->author_id);
+
         return $this->successResponse($this->bookServices->createBook($request->all()), Response::HTTP_CREATED);
     }
 

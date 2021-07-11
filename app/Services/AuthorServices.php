@@ -47,7 +47,7 @@ class AuthorServices
      * @return string
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function getAuthor($id){
+    public function getOneAuthor($id){
         return $this->perfomRequest('GET', "/authors/{$id}");
     }
 
