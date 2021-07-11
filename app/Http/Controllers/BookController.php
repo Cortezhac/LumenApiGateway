@@ -7,7 +7,6 @@ use App\Services\BookServices;
 use App\Traits\ApiResponser;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use function PHPUnit\Framework\isEmpty;
 
 class BookController extends Controller
 {
@@ -31,8 +30,8 @@ class BookController extends Controller
      */
     public function __construct(BookServices $bookServices, AuthorServices $authorServices)
     {
-        $this->authorServices = $authorServices;
         $this->bookServices = $bookServices;
+        $this->authorServices = $authorServices;
     }
 
 
