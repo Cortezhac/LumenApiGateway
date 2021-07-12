@@ -5,6 +5,7 @@ namespace App\Exceptions;
 use App\Traits\ApiResponser;
 use GuzzleHttp\Exception\ClientException;
 use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Response;
 use Illuminate\Validation\ValidationException;
