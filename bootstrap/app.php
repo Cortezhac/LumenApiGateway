@@ -31,7 +31,7 @@ $app->withEloquent();
  * Registering config files
  */
 $app->configure('services');
-
+$app->configure('auth');
 /*
 |--------------------------------------------------------------------------
 | Register Container Bindings
