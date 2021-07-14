@@ -15,6 +15,16 @@ trait ApiResponser {
     }
 
     /**
+     * Build a success response on gateway
+     * @param $data
+     * @param int $code
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function validResponse($data ,int $code = Response::HTTP_OK){
+        return response()->json(['data'=>$data], $code);
+    }
+
+    /**
      * return Json Response
      * @param string $message
      * @param int $code
