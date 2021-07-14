@@ -85,4 +85,8 @@ class UserController extends Controller
         $user->delete();
         return $this->validResponse($user);
     }
+
+    public function me(Request $request){
+        return $this->validResponse($request->user());
+    }
 }

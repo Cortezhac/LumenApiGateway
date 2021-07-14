@@ -12,7 +12,7 @@ use Laravel\Passport\HasApiTokens;
 
 class User extends Model implements AuthenticatableContract, AuthorizableContract
 {
-    use Authenticatable, Authorizable, HasFactory , HasApiTokens;
+    use Authenticatable, Authorizable, HasFactory, HasApiTokens;
 
     protected $table = 'users';
 
